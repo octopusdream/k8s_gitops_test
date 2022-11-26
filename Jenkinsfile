@@ -14,7 +14,7 @@ node {
                     sh "git config user.email yusine51@gmail.com"
                     sh "git config user.name YUYUYUJINN"
                     sh "cat deployment.yaml"
-                    sh "sed -i 's+${JENKINS_IP}:5001/flask_test/test.*+${JENKINS_IP}:5001/flask_test:${DOCKERTAG}+g' deployment.yaml"
+                    sh "sed -i 's+${JENKINS_IP}:5001/flask_test.*+${JENKINS_IP}:5001/flask_test:${DOCKERTAG}+g' deployment.yaml"
                     sh "cat deployment.yaml"
                     sh "git add ."
                     sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
