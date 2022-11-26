@@ -1,6 +1,6 @@
 node {
     def app
-    env.JENKINS_IP = '15.164.210.210'
+    env.JENKINS_IP = '43.201.66.100'
     stage('Clone repository') {    
         checkout scm
     }
