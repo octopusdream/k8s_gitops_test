@@ -1,7 +1,7 @@
 node {
     def app
     environment{
-	      JENKINS_IP = '13.124.252.111'
+	      JENKINS_IP = '15.164.210.210'
     }
     stage('Clone repository') {    
         checkout scm
