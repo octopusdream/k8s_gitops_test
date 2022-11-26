@@ -18,7 +18,7 @@ node {
                     sh "cat deployment.yaml"
                     sh "git add ."
                     sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
-                    sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/octopusdream/k8s_gitops_test.git HEAD:main"
+                    sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/octopusdream/k8s_gitops_test.git HEAD:master"
                 }
             }
         }
