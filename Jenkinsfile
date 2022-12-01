@@ -1,6 +1,6 @@
 node {
     def app
-    env.JENKINS_IP = '3.39.22.98'
+    env.JENKINS_IP = 'jenkins-1d89f623e089d4f6.elb.ap-northeast-3.amazonaws.com'
     stage('Clone repository') {    
         checkout scm
     }
