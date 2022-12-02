@@ -6,7 +6,19 @@ metadata:
     app: flaskdemo
   name: flaskdemo
 spec:
-  replicas: 5
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                    - flaskdemo
+            topologyKey: kubernets.io/zone
+  replicas: 6
   strategy:
     canary:
       steps:
