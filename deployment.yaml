@@ -9,12 +9,7 @@ spec:
   strategy:
     canary:
       steps:
-      - setCanaryScale:
-          replicas: 6
-      - setCanaryScale:
-          weight: 20
-      - setCanaryScale:
-          matchTrafficWeight: true
+      - setWeight: 20
       - pause: {}
       - setWeight: 40
       - pause: {duration: 20}
