@@ -8,9 +8,13 @@ metadata:
 spec:
   strategy:
     canary:
-      minAvailable: 6
       steps:
-      - setWeight: 20
+      - setCanaryScale:
+          replicas: 6
+      - setCanaryScale:
+          weight: 20
+      - setCanaryScale:
+          matchTrafficWeight: true
       - pause: {}
       - setWeight: 40
       - pause: {duration: 20}
