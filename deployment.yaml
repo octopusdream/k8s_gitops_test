@@ -2,11 +2,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  labels:
-    app: flaskdemo
-  name: flaskdemo
+  name: rollout-ref-deployment
 spec:
-  replicas: 6
+  replicas: 5
+  revisionHistoryLimit: 2
+  workloadRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: rollout-ref-deployment
   strategy:
     canary:
       maxSurge: "25%"
@@ -20,7 +23,16 @@ spec:
       - pause: {duration: 20}
       - setWeight: 80
       - pause: {duration: 20}
-  revisionHistoryLimit: 2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: flaskdemo
+  name: rollout-ref-deployment
+spec:
+  replicas: 0
+  revisionHistoryLimit: 0
   selector:
     matchLabels:
       app: flaskdemo
@@ -42,8 +54,9 @@ spec:
                         - flaskdemo
                 topologyKey: kubernets.io/zone
       containers:
-      - image: jenkins-1d89f623e089d4f6.elb.ap-northeast-3.amazonaws.com:5001/flask_test:22
-        name: flaskdemo
+      - name: flaskdemo
+        image: jenkins-1d89f623e089d4f6.elb.ap-northeast-3.amazonaws.com:5001/flask_test:22
+        imagePullPolicy: Always
         resources:
           requests: 
             cpu: "500m"
