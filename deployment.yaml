@@ -18,7 +18,7 @@ spec:
       - pause: {duration: 20}
       - setWeight: 80
       - pause: {duration: 20}
-  revisionHistoryLimit: 2
+  revisionHistoryLimit: 4
   selector:
     matchLabels:
       app: flaskdemo
