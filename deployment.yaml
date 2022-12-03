@@ -71,4 +71,4 @@ spec:
   topologyKeys:
     - "kubernetes.io/hostname"
     - "topology.kubernetes.io/zone"
-		- "*"
+    - "*"
