@@ -6,9 +6,9 @@ metadata:
     app: flaskdemo
   name: flaskdemo
 spec:
-  replicas: 6
   strategy:
     canary:
+      minAvailable: 6
       steps:
       - setWeight: 20
       - pause: {}
