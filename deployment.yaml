@@ -9,7 +9,7 @@ spec:
   workloadRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: rollout-ref-deployment
+    name: flaskdemo
   strategy:
     canary:
       maxSurge: "25%"
@@ -29,7 +29,7 @@ kind: Deployment
 metadata:
   labels:
     app: flaskdemo
-  name: rollout-ref-deployment
+  name: flaskdemo
 spec:
   replicas: 0
   revisionHistoryLimit: 0
