@@ -68,3 +68,7 @@ spec:
     targetPort: 5000
   selector:
     app: flaskdemo
+  topologyKeys:
+    - "kubernetes.io/hostname"
+    - "topology.kubernetes.io/zone"
+		- "*"
