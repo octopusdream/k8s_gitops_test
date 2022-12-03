@@ -9,6 +9,8 @@ spec:
   replicas: 6
   strategy:
     canary:
+      maxSurge: "25%"
+      maxUnavailable: 0
       steps:
       - setWeight: 20
       - pause: {}
