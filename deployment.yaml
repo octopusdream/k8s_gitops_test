@@ -56,6 +56,8 @@ metadata:
   name: lb-service
   labels:
     app: lb-service
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
 spec:
   type: LoadBalancer
   ports:
