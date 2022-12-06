@@ -63,6 +63,7 @@ spec:
   ports:
   - port: 80
     targetPort: 5000
+    name: http_metrics
   selector:
     app: flaskdemo
   topologyKeys:
